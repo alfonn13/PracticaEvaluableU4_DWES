@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('event_participant', function (Blueprint $table){
+            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('participant_id');
+            $table->primary(['event_id', 'participant_id']);
+            $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('event_participant');
     }
 };
