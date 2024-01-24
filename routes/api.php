@@ -25,9 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource("users", "App\Http\Controllers\User");
-Route::apiResource("user-details", "App\Http\Controllers\UserDetail");
-Route::apiResource("participants", "App\Http\Controllers\Participant");
-Route::apiResource("events", "App\Http\Controllers\Event");
-Route::apiResource("event-participants", "App\Http\Controllers\EventParticipantController");
-Route::apiResource("organizers", "App\Http\Controllers\Organizer");
+Route::apiResource("users", "App\Http\Controllers\UserController"); //comprobado
+Route::apiResource("userDetails", "App\Http\Controllers\UserDetailController");//COMPROBADO
+Route::apiResource("participants", "App\Http\Controllers\ParticipantController"); //comprobado
+Route::apiResource("events", "App\Http\Controllers\EventController"); //comprobado
+Route::apiResource("eventParticipants", "App\Http\Controllers\EventParticipantController");//delete como se hace ya que no tenemos id
+Route::apiResource("organizers", "App\Http\Controllers\OrganizerController");//comprobado

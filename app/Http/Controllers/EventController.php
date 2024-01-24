@@ -17,7 +17,7 @@ class EventController extends Controller
     {
         try {
             $request->validate([
-                'organizer_id' => 'required|exists:organizers,id',
+                'organizer_id' => 'required|integer',
                 'nombre_evento' => 'required|string',
                 'fecha' => 'required|date',
                 'ubicacion' => 'required|string',
