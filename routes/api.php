@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController as User;
 use App\Http\Controllers\UserDetailController as UserDetail;
 use App\Http\Controllers\ParticipantController as Participant;
-use App\Http\Controllers\EventController as Event;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventParticipantController as EventParticipant;
 use App\Http\Controllers\OrganizerController as Organizer;
 
@@ -31,3 +31,10 @@ Route::apiResource("participants", "App\Http\Controllers\ParticipantController")
 Route::apiResource("events", "App\Http\Controllers\EventController"); //comprobado
 Route::apiResource("eventParticipants", "App\Http\Controllers\EventParticipantController");//delete como se hace ya que no tenemos id
 Route::apiResource("organizers", "App\Http\Controllers\OrganizerController");//comprobado
+
+
+Route::post('/events/{event}/participants/{participants}',
+[EventController::class, 'attachParticipant']);
+
+Route::delete('/events/{event}/participants/{participants}',
+[EventController::class, 'detachParticipant']);

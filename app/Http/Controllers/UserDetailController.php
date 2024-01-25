@@ -44,7 +44,8 @@ class UserDetailController extends Controller
     public function update(Request $request, string $id)
     {
         try {
-            $userDetail = UserDetail::findOrFail($id);
+            $userDetail = UserDetail::find($id);
+            
 
             $request->validate([
                 'user_id' => 'required|exists:users,id',
