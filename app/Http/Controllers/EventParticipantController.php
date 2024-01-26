@@ -12,4 +12,5 @@ class EventParticipantController extends Controller
         return response()->json($events);
     }
 
+
 }
